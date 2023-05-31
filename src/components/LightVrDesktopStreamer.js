@@ -1,5 +1,5 @@
-import WebRTCHelper from '/src/utils/WebRTCHelper.js';
-import Lock from '/src/utils/Lock.js';
+import WebRTCHelper from '../utils/WebRTCHelper.js';
+import Lock from '../utils/Lock.js';
 
 
 class LightVrDesktopStreamer extends HTMLElement {
