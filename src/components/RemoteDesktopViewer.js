@@ -51,17 +51,12 @@ class RemoteDesktopViewer extends HTMLElement {
             } else {
                 this.info('Input your code to continue.')
             }
-
-            if (typeof DeviceOrientationEvent.requestPermission === 'function') {
-                console.log('request permisson');
-                DeviceMotionEvent.requestPermission();
-            }
         }
 
         const style = document.createElement("style");
         style.textContent = `
             input, select {
-                font-size: 1vw;
+                font-size: 1.3em;
                 margin: 1vw 0.2vw 1vw 0.2vw;
                 padding: 0.2vw;
             }
@@ -161,7 +156,7 @@ class RemoteDesktopViewer extends HTMLElement {
     }
 }
 
-customElements.define('light-vr-desktop-viewer', RemoteDesktopViewer);
+customElements.define('remote-desktop-viewer', RemoteDesktopViewer);
 
 
 export default RemoteDesktopViewer;

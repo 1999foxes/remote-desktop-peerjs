@@ -32,7 +32,7 @@ class RemoteDesktop extends HTMLElement {
         var style = document.createElement("style");
         style.textContent = `
             input {
-                font-size: 1vw;
+                font-size: 1.3em;
                 margin: 1vw 0.2vw 1vw 0.2vw;
                 padding: 0.2vw;
             }
@@ -44,17 +44,17 @@ class RemoteDesktop extends HTMLElement {
 
     startStreamer() {
         this.container.innerHTML = '';
-        const streamer = document.createElement('light-vr-desktop-streamer');
+        const streamer = document.createElement('remote-desktop-streamer');
         this.container.appendChild(streamer);
     }
 
     startViewer(otherPeerId = '') {
         this.container.innerHTML = '';
-        const viewer = document.createElement('light-vr-desktop-viewer');
+        const viewer = document.createElement('remote-desktop-viewer');
         viewer.setAttribute('otherPeerId', otherPeerId);
         this.container.appendChild(viewer);
     }
 }
-customElements.define('light-vr-desktop', RemoteDesktop);
+customElements.define('remote-desktop', RemoteDesktop);
 
 export default RemoteDesktop;

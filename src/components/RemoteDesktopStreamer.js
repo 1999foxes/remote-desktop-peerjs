@@ -69,7 +69,7 @@ class RemoteDesktopStreamer extends HTMLElement {
         var style = document.createElement("style");
         style.textContent = `
             input, select {
-                font-size: 1vw;
+                font-size: 1.3em;
                 margin: 1vw 0.2vw 1vw 0.2vw;
                 padding: 0.2vw;
             }
@@ -184,7 +184,7 @@ class RemoteDesktopStreamer extends HTMLElement {
 }
 
 
-customElements.define('light-vr-desktop-streamer', RemoteDesktopStreamer);
+customElements.define('remote-desktop-streamer', RemoteDesktopStreamer);
 
 
 
