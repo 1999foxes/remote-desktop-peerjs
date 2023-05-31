@@ -1,8 +1,8 @@
-import {} from './LightVrDesktopStreamer.js';
-import {} from './LightVrDesktopViewer.js';
+import {} from './RemoteDesktopStreamer.js';
+import {} from './RemoteDesktopViewer.js';
 
 
-class LightVrDesktop extends HTMLElement {
+class RemoteDesktop extends HTMLElement {
     constructor() {
         super();
         const shadow = this.attachShadow({ mode: 'open' });
@@ -55,6 +55,6 @@ class LightVrDesktop extends HTMLElement {
         this.container.appendChild(viewer);
     }
 }
-customElements.define('light-vr-desktop', LightVrDesktop);
+customElements.define('light-vr-desktop', RemoteDesktop);
 
-export default LightVrDesktop;
+export default RemoteDesktop;

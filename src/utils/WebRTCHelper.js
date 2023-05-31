@@ -30,7 +30,7 @@ class WebRTCHelper {
             if (this.id == null) {
                 // get a random id
                 const rand = Math.floor(Math.random() * 1000000);
-                this.id = 'LightVrDesktop' + rand.toString().padStart(6, '0');
+                this.id = 'RemoteDesktop' + rand.toString().padStart(6, '0');
             }
             // connect to peer server
             this.peer = new Peer(this.id);

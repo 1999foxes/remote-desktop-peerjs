@@ -1,7 +1,7 @@
 import WebRTCHelper from '../utils/WebRTCHelper.js';
 import Lock from '../utils/Lock.js';
 
-class LightVrDesktopViewer extends HTMLElement {
+class RemoteDesktopViewer extends HTMLElement {
     constructor() {
         super();
 
@@ -28,7 +28,7 @@ class LightVrDesktopViewer extends HTMLElement {
             this.inputCode.value = [...this.inputCode.value]
                 .filter(c => c.charCodeAt() >= '0'.charCodeAt() && c.charCodeAt() <= '9'.charCodeAt())
                 .join('');
-            this.setAttribute('otherPeerId', 'LightVrDesktop' + this.inputCode.value);
+            this.setAttribute('otherPeerId', 'RemoteDesktop' + this.inputCode.value);
         };
         this.inputCode.onkeydown = e => {
             if (e.key === 'Enter') {
@@ -84,25 +84,25 @@ class LightVrDesktopViewer extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log('LightVrDesktopViewer');
+        console.log('RemoteDesktopViewer');
 
         const otherPeerId = this.getOtherPeerId();
         if (otherPeerId != null) {
-            this.inputCode.value = otherPeerId.replace('LightVrDesktop', '');
+            this.inputCode.value = otherPeerId.replace('RemoteDesktop', '');
         } else {
             console.log('cannot get otherPeerId');
         }
     }
 
     disconnectedCallback() {
-        console.log('LightVrDesktopViewer removed');
+        console.log('RemoteDesktopViewer removed');
         this.webRTCHelper.disconnectAll();
     }
 
     getOtherPeerId() {
         const otherPeerId = this.getAttribute('otherPeerId');
         console.log('otherPeerId = ' + otherPeerId);
-        if (otherPeerId != undefined && otherPeerId.length != 0 && otherPeerId !== 'LightVrDesktop') {
+        if (otherPeerId != undefined && otherPeerId.length != 0 && otherPeerId !== 'RemoteDesktop') {
             return otherPeerId;
         } else {
             return null;
@@ -161,7 +161,7 @@ class LightVrDesktopViewer extends HTMLElement {
     }
 }
 
-customElements.define('light-vr-desktop-viewer', LightVrDesktopViewer);
+customElements.define('light-vr-desktop-viewer', RemoteDesktopViewer);
 
 
-export default LightVrDesktopViewer;
+export default RemoteDesktopViewer;

@@ -2,7 +2,7 @@ import WebRTCHelper from '../utils/WebRTCHelper.js';
 import Lock from '../utils/Lock.js';
 
 
-class LightVrDesktopStreamer extends HTMLElement {
+class RemoteDesktopStreamer extends HTMLElement {
     constructor() {
         super();
 
@@ -24,7 +24,7 @@ class LightVrDesktopStreamer extends HTMLElement {
         this.video = this.container.querySelector('#video');
 
         this.configSelector = this.container.querySelector('#configSelector');
-        const configSelectorSelected = getLocalStorage('LightVrDesktopStreamerConfigSelectorValue') || 0;
+        const configSelectorSelected = getLocalStorage('RemoteDesktopStreamerConfigSelectorValue') || 0;
         let configSelectorCount = 0;
         this.configSelector.addOption = (value, text) => {
             const option = document.createElement('option');
@@ -42,7 +42,7 @@ class LightVrDesktopStreamer extends HTMLElement {
             { video: { width: 4500, frameRate: 60 }, audio: true },
         ]
         this.configSelector.onchange = e => {
-            setLocalStorage('LightVrDesktopStreamerConfigSelectorValue', this.configSelector.value);
+            setLocalStorage('RemoteDesktopStreamerConfigSelectorValue', this.configSelector.value);
             if (this.mediaStream != null && this.webRTCHelper.mediaConn != null) {
                 this.stopMediaStream();
                 this.getMediaStreamFromDisplay();
@@ -88,11 +88,11 @@ class LightVrDesktopStreamer extends HTMLElement {
     }
 
     connectedCallback() {
-        console.log('LightVrDesktopStreamer');
+        console.log('RemoteDesktopStreamer');
     }
 
     disconnectedCallback() {
-        console.log('LightVrDesktopStreamer removed');
+        console.log('RemoteDesktopStreamer removed');
         this.stop();
     }
 
@@ -119,7 +119,7 @@ class LightVrDesktopStreamer extends HTMLElement {
                 url.search = params.toString();
                 this.streamLink.href = url.href;
                 this.streamLink.hidden = false;
-                this.info(`Your sharing code is ${this.webRTCHelper.id.replace('LightVrDesktop', '')}`);
+                this.info(`Your sharing code is ${this.webRTCHelper.id.replace('RemoteDesktop', '')}`);
             })
             .then(() => this.webRTCHelper.waitPeer())
             .then(() => this.info('Connected to viewer, start streaming...'))
@@ -140,7 +140,7 @@ class LightVrDesktopStreamer extends HTMLElement {
     autoReconnect() {
         this.lock.acquire()
             .then(() => this.getMediaStream() == null ? this.getMediaStreamFromDisplay() : Promise.resolve())
-            .then(() => this.info(`Your sharing code is ${this.webRTCHelper.id.replace('LightVrDesktop', '')}`))
+            .then(() => this.info(`Your sharing code is ${this.webRTCHelper.id.replace('RemoteDesktop', '')}`))
             .then(() => this.webRTCHelper.waitPeer())
             .then(() => this.info('Connected to viewer, start streaming...'))
             .then(() => {
@@ -184,7 +184,7 @@ class LightVrDesktopStreamer extends HTMLElement {
 }
 
 
-customElements.define('light-vr-desktop-streamer', LightVrDesktopStreamer);
+customElements.define('light-vr-desktop-streamer', RemoteDesktopStreamer);
 
 
 
@@ -199,6 +199,6 @@ function setLocalStorage(key, value) {
     }
 }
 
-window.LightVrDesktopStreamer = LightVrDesktopStreamer;
+window.RemoteDesktopStreamer = RemoteDesktopStreamer;
 
-export default LightVrDesktopStreamer;
+export default RemoteDesktopStreamer;
