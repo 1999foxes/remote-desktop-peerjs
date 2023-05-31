@@ -1,0 +1,19 @@
+{
+  "name": "remote-desktop-peerjs",
+  "version": "1.0.0",
+  "description": "WebRTC screen share",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/1999foxes/remote-desktop-peerjs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/1999foxes/remote-desktop-peerjs/issues"
+  },
+  "homepage": "https://github.com/1999foxes/remote-desktop-peerjs#readme"
+}

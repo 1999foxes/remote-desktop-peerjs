@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Remote Desktop</title>
+    <style>
+        * {
+            /* border: 1px solid red; */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #header {
+            text-align: left;
+            margin: 1vw;
+        }
+
+        #header a {
+            color:black;
+            font-size: 1.2vw;
+            font-weight: bold;
+        }
+
+        body {
+            background-color: white;
+        }
+
+        #panel {
+            width: calc(min(100vw, max(60vh, 30vw)));
+            margin-left: calc(50vw - min(50vw, max(30vh, 15vw)));
+            background-color:white;
+        }
+    </style>
+    <script src="/lib/peerjs.min.js"></script>
+</head>
+
+<body>
+    <div id="panel">
+
+        <div id="header"><a href='/'>remote-desktop-peerjs</a></div>
+
+        <light-vr-desktop></light-vr-desktop>
+
+    </div>
+    <script type="module" src="/src/components/LightVrDesktop.js"></script>
+
+</body>
